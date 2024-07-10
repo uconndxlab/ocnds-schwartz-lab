@@ -1,0 +1,213 @@
+/*OCNDS stylesheet*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+}
+* {
+    font-family: 'Work Sans', Roboto, sans-serif;
+}
+
+:root{
+    --accent: #4A30EB;
+    --accent2: #F3DA00;
+    --dark-accent: #0E0064;
+
+}
+
+h1, h2, h3{
+    font-family: 'Kode Mono', monospace;
+}
+h3{
+    font-size: 1.2rem;
+}
+p{
+    font-size: 0.85rem;
+    line-height: 1.6;
+    padding: 10px 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:visited{
+    color: var(--accent2);
+}
+
+/*----GRID LAYOUT-----*/
+
+
+
+/*----HEADER------*/
+header{
+    background-color: var(--accent);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 25px 30px;
+}
+.title{
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.main-title{
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.title2{
+    font-size: 1rem;
+    font-weight: 400;
+}
+.subtitle{
+    color: var(--accent2);
+    font-size: 0.8rem;
+}
+
+/*----SIDEBAR------*/
+
+aside{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid var(--dark-accent);
+}
+.credits > h3{
+    color: var(--accent2);
+}
+
+.credits{
+    padding: 20px;
+    background-color: var(--dark-accent);
+    color: white;
+}
+
+.btn-group{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+.btn{
+        color: white;
+        background-color: var(--accent);
+        text-decoration: none;
+        padding: 10px 15px;
+    }
+.btn:hover{
+        background-color: var(--accent2);
+        color: var(--accent);
+    }
+
+
+.description > h3{
+    color: var(--accent);
+}
+.description{
+    padding: 20px;
+    background-color: var(--accent2);
+}
+
+/*-----SEARCH BAR-----*/
+
+.search-bar{
+    background-color: #F5F3FF;
+}
+
+
+
+
+/*----TABLE DATA ------*/
+
+.table-wrapper{
+    overflow-x: auto;
+}
+
+
+/*----we could do something like this for table responsiveness? 
+https://codepen.io/AllThingsSmitty/pen/MyqmdM */
+
+
+
+@media (min-width: 0px){
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+main{
+    min-width: auto;
+}
+}
+/*
+/*----TABLET STYLING----*/
+
+@media (min-width: 650px){
+    
+    body{
+        display: grid;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-areas:
+        head aside
+        main aside
+        ;
+    grid-template-rows: 150px auto;
+    grid-template-columns: 2fr auto;
+    
+    }
+    main{
+        max-width: 600px;
+    }
+}
+
+
+/*-----DESKTOP STYLING-----*/
+
+@media (min-width: 992px){
+
+
+        body{
+        grid-template-rows: 200px auto;
+        grid-template-columns: auto 1fr;
+        
+        }
+
+        /*----HEADER------*/
+
+        .title{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .main-title{
+            font-size: 8.5rem;
+        }
+        .title2{
+            font-size: 2rem;
+        }
+        .credits{
+            padding: 30px;
+        }
+
+        .description{
+            padding: 30px;
+        }
+
+        main{
+            max-width:1000px
+        }
+
+}

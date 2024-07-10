@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCNDS - Schwartz Lab</title>
+    <!--css-->
+    <link rel="stylesheet" href="./style.css">
+    <!--fonts-->
+        <!--kode mono-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+
+        <!--work sans-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!--font awesome cdn-->
+    <script src="https://kit.fontawesome.com/b07cd41544.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--------------------------HEADER-------------------------->
+    <header>
+     <div class="title">
+        <h1 class="main-title">OCNDS</h1>
+        <h2 class="title2">Okur-Chung<br> 
+            Neurodevelopmental<br> 
+            Syndrome</h2>
+     </div> 
+     <div class="subtitle">
+        <p>Schwartz Lab - Researchers / Credits</p>
+     </div>
+    </header>
+
+    
+        <!-------------------------------SIDEBAR------------------------------->
+        <aside>
+            <!-----------------------CREDITS---------------------->
+            <section class="credits">
+                <h3>Credits</h3>
+                <p>
+                    Schwartz Labs | Researchers: John Doe, Mary Sue | Lorem ipsum dolor sit amet consectetur. Lacinia turpis et quam non in.
+                </p>
+                <div class="btn-group"> 
+                    <div class="btn">
+                        <a href="#">Lorem</a> 
+                    </div>
+                    <div class="btn">
+                        <a href="#">Ipsum</a> 
+                    </div>
+                    <div class="btn">
+                        <a href="#">Dolor</a> 
+                    </div>
+                </div>
+            </section>
+    
+            <!-----------------------DATABASE DESCRIPTION---------------------->
+
+            <section class="description">
+                <h3>Database Description</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur. Lacinia turpis et quam non in. In lorem massa et blandit gravida mattis. Quis viverra lacus duis metus amet purus est sit. Ut aliquam erat faucibus faucibus morbi neque ipsum ut proin. Habitasse quam in congue risus quam. In lorem massa et blandit gravida mattis.
+                </p>
+            </section>
+        </aside>
+
+        <main>
+        <!-----------------------SEARCH BAR---------------------->
+        <section class="search-bar">
+
+            <form id="search-bar" role="search">
+                <input type="search" id="query" name="q"
+                placeholder="Search gene, protein, or protein accession" aria-label="Search database by gene, protein, or protein accession">
+                <!--search btn + icon-->
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            
+            <!--Protein checkbox/filter-->
+            <div class="filter">
+                <input type="checkbox" id="protein-checkbox" name="protein-checkbox">
+                <label for="protein-checkbox"> Protein Table</label>
+            </div>
+
+            <!--Phosphorylation checkbox/filter-->
+            <div class="filter">
+                <input type="checkbox" id="phosphorylation-checkbox" name="protein-checkbox">
+                <label for="phosphorylation-checkbox"> Phosphorylation Table</label>
+            </div>
+
+            </form>
+        </section>
+    
+
+        <!-----------------------TABLE DATA---------------------->
+        <section class="data">
+            <!--csv to html converter: https://www.convertcsv.com/csv-to-html.htm  //
+             only the first few rows shown.-->
+        
+        <div class="table-wrapper">
+            <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th title="Field #1">accession</th>
+                        <th title="Field #2">ENSEBL</th>
+                    <th title="Field #3">K198R_S</th>
+                    <th title="Field #4">K198R_M</th>
+                    <th title="Field #5">R47G</th>
+                    <th title="Field #6">D156E</th>
+                    <th title="Field #7">pval_K198Rs</th>
+                    <th title="Field #8">pval_K198Rm</th>
+                    <th title="Field #9">pval_R47G</th>
+                    <th title="Field #10">pval_D156E</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                <td>Q5T3I0</td>
+                <td>ENSG00000292251</td>
+                <td align="right">-0.431279722</td>
+                <td align="right">-0.843407126</td>
+                <td align="right">-0.207175577</td>
+                <td align="right">0.583694856</td>
+                <td align="right">0.477603014</td>
+                <td align="right">0.263348434</td>
+                <td align="right">0.925707465</td>
+                <td align="right">0.08983154</td>
+                </tr>
+
+                <tr>
+                <td>P04179</td>
+                <td>ENSG00000291237</td>
+                <td align="right">0.81813979</td>
+                <td align="right">0.221953438</td>
+                <td align="right">-0.235143612</td>
+                <td align="right">-0.249332649</td>
+                <td align="right">0.000342847</td>
+                <td align="right">0.220248262</td>
+                <td align="right">0.127967612</td>
+                <td align="right">0.108100045</td>
+                </tr>
+
+                <tr>
+                <td>P23610</td>
+                <td>ENSG00000288709</td>
+                <td align="right">0.98069317</td>
+                <td align="right">0.622113316</td>
+                <td align="right">0.705740102</td>
+                <td align="right">0.322614504</td>
+                <td align="right">0.000551251</td>
+                <td align="right">0.146051011</td>
+                <td align="right">0.023915741</td>
+                <td align="right">0.186702386</td>
+                </tr>
+
+                <tr>
+                <td>Q5JSZ5</td>
+                <td>ENSG00000288701</td>
+                <td align="right">0.361112281</td>
+                <td align="right">-0.472642317</td>
+                <td align="right">-0.067370752</td>
+                <td align="right">-0.128051393</td>
+                <td align="right">0.002281422</td>
+                <td align="right">0.025845268</td>
+                <td align="right">0.807701029</td>
+                <td align="right">0.3936742</td>
+                </tr>
+
+                <tr>
+                <td>A0A6Q8PF18</td>
+                <td>ENSG00000288637</td>
+                <td align="right">0.267378637</td>
+                <td align="right">0.435015363</td>
+                <td align="right">-0.120564304</td>
+                <td align="right">-0.27609015</td>
+                <td align="right">0.039880517</td>
+                <td align="right">0.016292638</td>
+                <td align="right">0.382054936</td>
+                <td align="right">0.099579101</td>
+                </tr>
+
+                <tr>
+                <td>A0A669KAX9</td>
+                <td>ENSG00000288564</td>
+                <td align="right">1.500270192</td>
+                <td align="right">0.072914939</td>
+                <td align="right">0.02951209</td>
+                <td align="right">0.195286102</td>
+                <td align="right">0.005652598</td>
+                <td align="right">0.637335353</td>
+                <td align="right">0.849016323</td>
+                <td align="right">0.158009839</td>
+                </tr>
+
+                <tr>
+                <td>A0A669KBH7</td>
+                <td>ENSG00000288558</td>
+                <td align="right">-1.444875024</td>
+                <td align="right">0.31358497</td>
+                <td align="right">0.008807157</td>
+                <td align="right">-0.121922849</td>
+                <td align="right">4.43E-05</td>
+                <td align="right">0.046973701</td>
+                <td align="right">0.917433282</td>
+                <td align="right">0.303291899</td>
+                </tr>
+                <tr>
+                <td>A0A590UK80</td>
+                <td>ENSG00000288000</td>
+                <td align="right">1.268586646</td>
+                <td align="right">-0.142357726</td>
+                <td align="right">0.036403324</td>
+                <td align="right">0.288443989</td>
+                <td align="right">0.001541799</td>
+                <td align="right">0.761742896</td>
+                <td align="right">0.700529789</td>
+                <td align="right">0.154563049</td>
+                </tr>
+
+                <tr>
+                <td>L0R819</td>
+                <td>ENSG00000286053</td>
+                <td align="right">0.610855541</td>
+                <td align="right">0.379138295</td>
+                <td align="right">0.084060781</td>
+                <td align="right">-0.135278293</td>
+                <td align="right">0.000167813</td>
+                <td align="right">0.006239687</td>
+                <td align="right">0.203052574</td>
+                <td align="right">0.226208701</td>
+                </tr>
+                <tr>
+                <td>A0A3B3ISV5</td>
+                <td>ENSG00000285942</td>
+                <td align="right">0.232733054</td>
+                <td align="right">0.011851119</td>
+                <td align="right">-0.017464895</td>
+                <td align="right">-0.177177519</td>
+                <td align="right">0.058858571</td>
+                <td align="right">0.926333804</td>
+                <td align="right">0.748018395</td>
+                <td align="right">0.154973526</td>
+                </tr>
+
+                <tr>
+                <td>A0A3B3ITX4</td>
+                <td>ENSG00000285827</td>
+                <td align="right">0.31007917</td>
+                <td align="right">-0.143304729</td>
+                <td align="right">-0.143411875</td>
+                <td align="right">-0.100337854</td>
+                <td align="right">0.07805308</td>
+                <td align="right">0.109238688</td>
+                <td align="right">0.20383423</td>
+                <td align="right">0.149718276</td>
+                </tr>
+
+                <tr>
+                <td>A0A3B3ITS5</td>
+                <td>ENSG00000285816</td>
+                <td align="right">2.163717016</td>
+                <td align="right">-0.589703659</td>
+                <td align="right">-0.06363018</td>
+                <td align="right">0.442646315</td>
+                <td align="right">6.09E-05</td>
+                <td align="right">0.397615641</td>
+                <td align="right">0.912142937</td>
+                <td align="right">0.163269317</td>
+                </tr>
+
+                <tr>
+                <td>Q9HB66</td>
+                <td>ENSG00000285723</td>
+                <td align="right">2.585999929</td>
+                <td align="right">0.599787128</td>
+                <td align="right">0.256103107</td>
+                <td align="right">0.506448188</td>
+                <td align="right">0.000440774</td>
+                <td align="right">0.061157857</td>
+                <td align="right">0.294921127</td>
+                <td align="right">0.207531036</td>
+                </tr>
+
+                <tr>
+                <td>A0A2R8Y600</td>
+                <td>ENSG00000285382</td>
+                <td align="right">0.399961626</td>
+                <td align="right">1.325706436</td>
+                <td align="right">1.5214551</td>
+                <td align="right">0.562435415</td>
+                <td align="right">0.166072757</td>
+                <td align="right">0.003689445</td>
+                <td align="right">0.209018429</td>
+                <td align="right">0.237396377</td>
+                </tr>
+
+                <tr>
+                <td>A0A2R8YDQ0</td>
+                <td>ENSG00000284946</td>
+                <td align="right">-0.089214294</td>
+                <td align="right">0.133557017</td>
+                <td align="right">0.00781341</td>
+                <td align="right">-0.191435503</td>
+                <td align="right">0.269634225</td>
+                <td align="right">0.457869503</td>
+                <td align="right">0.851291987</td>
+                <td align="right">0.147667043</td>
+                </tr>
+                <tr>
+                <td>A0A2R8YF49</td>
+                <td>ENSG00000284933</td>
+                <td align="right">1.867911239</td>
+                <td align="right">-0.23343014</td>
+                <td align="right">-0.44067953</td>
+                <td align="right">-0.320689256</td>
+                <td align="right">0.003554176</td>
+                <td align="right">0.67507483</td>
+                <td align="right">0.473972599</td>
+                <td align="right">0.463829582</td>
+                </tr>
+
+                <tr>
+                <td>A0A2R8YCV2</td>
+                <td>ENSG00000284773</td>
+                <td align="right">-1.10851539</td>
+                <td align="right">-0.194551115</td>
+                <td align="right">-0.463425721</td>
+                <td align="right">-0.446557755</td>
+                <td align="right">0.002729212</td>
+                <td align="right">0.286857712</td>
+                <td align="right">0.090515307</td>
+                <td align="right">0.089593846</td>
+                </tr>
+
+    <!--end of table wrapper div-->   
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -73,6 +73,75 @@ header{
     font-size: 0.8rem;
 }
 
+input[type="search"]{
+    padding: 10px;
+    border: 1px solid var(--accent2);
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+button[type="submit"]{
+    padding: 10px;
+    border: 1px solid var(--accent2);
+    border-radius: 5px;
+    margin: 0px 0x 10px 0;
+    width: 100%;
+    background-color: var(--accent2);
+    color: var(--accent);
+    cursor:pointer;
+}
+
+.filter-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+
+}
+
+.filter label {
+    font-size: 0.8rem;
+    color: var(--dark-accent);
+    cursor: pointer;
+}
+
+.data table {
+    border-collapse: collapse;
+    width: 100%;
+
+    margin-top:20px;
+}
+
+.data th {
+    background-color: var(--accent2);
+    color: var(--dark-accent);
+    font-size: 0.8rem;
+    padding: 10px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.data td {
+    border-bottom: 1px solid var(--accent2);
+    padding: 10px;
+}
+
+.data tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.data tr:hover {
+    background-color: var(--accent2);
+}
+
+main {
+    background: #f5f5f5;
+}
+
+
+
 /*----SIDEBAR------*/
 
 aside{
@@ -123,6 +192,7 @@ aside{
 .search-bar{
     background-color: #F5F3FF;
 }
+
 
 
 

@@ -13,29 +13,27 @@ class PhosphorylationController extends Controller
     public function index(Request $request)
     {
         $phosphorylations = Phosphorylation::query();
-
-        // search it on gene or accession
+    
+        // Search by gene or accession
         if ($request->has('search')) {
-            $phosphorylations->where('gene', 'like', '%' . $request->search . '%')
-                ->orWhere('accession', 'like', '%' . $request->search . '%');
+            $searchTerm = $request->input('search');
+            $phosphorylations->where('gene', 'like', '%' . $searchTerm . '%')
+                ->orWhere('accession', 'like', '%' . $searchTerm . '%');
         }
-
-        // order by request var
-        if ($request->has('order_by')) {
-            $order_by = $request->order_by;
-            $phosphorylations->orderBy($order_by);
-        } else {
-            $phosphorylations->orderBy('accession');
-        }
-
+    
+        // Determine the column to order by
+        $orderBy = $request->input('order_by', 'accession'); // Default to 'accession'
+        $order = $request->input('order', 'asc'); // Default to ascending order
+    
+        // Apply ordering
+        $phosphorylations->orderBy($orderBy, $order);
+    
+        // Paginate the results
         $phosphorylations = $phosphorylations->paginate(50);
-
-        return view('phosphorylations.index', compact('phosphorylations'));
-
-
-
+    
         return view('phosphorylations.index', compact('phosphorylations'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

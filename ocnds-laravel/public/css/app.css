@@ -38,15 +38,9 @@ p {
     padding: 10px 0;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+a.active {
+    text-decoration: underline;
 }
-
-a:visited {
-    color: var(--accent2);
-}
-
 #app {
     display: flex;
     flex-direction: column;
@@ -432,6 +426,10 @@ https://codepen.io/AllThingsSmitty/pen/MyqmdM */
 
 
 /*-----DESKTOP STYLING-----*/
+
+.data .card {
+    opacity: 0;
+}
 
 /* Define the keyframes for the fly-in animations */
 @keyframes flyInLeft {

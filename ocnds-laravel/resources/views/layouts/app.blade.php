@@ -54,11 +54,6 @@
                             Schwartz Lab | Researchers: John Doe, Mary Sue | Lorem ipsum dolor sit amet consectetur.
                             Lacinia turpis et quam non in.
                         </p>
-                        <div class="btn-group">
-                            <a href="#" class="btn btn-primary">Learn More</a>
-                            <a href="#" class="btn btn-primary">Contact Us</a>
-                            <a href="#" class="btn btn-primary">Donate</a>
-                        </div>
                     </div>
                 </section>
 
@@ -73,31 +68,28 @@
                             faucibus faucibus morbi neque ipsum ut proin. Habitasse quam in congue risus quam. In lorem
                             massa et blandit gravida mattis.
                         </p>
+
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{{ route('proteins.index') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Search Proteins</a>
+                            <a href="{{ route('phosphorylations.index') }}" class="nav-link {{ request()->is('phos') ? 'active' : '' }}">Search Phosphorylation</a>
+                        </div>
                     </div>
                 </section>
             </aside>
 
         </div>
 
-        <main>
-
-            <div class="container">
-                <!-- button group for /phos and / -->
-                <div class="row my-4">
-                    <div class="col-md-12">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{ route('proteins.index') }}" class="btn btn-primary">Search Proteins</a>
-                            <a href="{{ route('phosphorylations.index') }}" class="btn btn-primary">Search
-                                Phosphorylation</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <main class="py-4">
             @yield('content')
         </main>
     </div>
+
+  
+
     <script src="https://unpkg.com/htmx.org@2.0.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 
 </html>

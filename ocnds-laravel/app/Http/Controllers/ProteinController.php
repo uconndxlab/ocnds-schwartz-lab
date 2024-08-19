@@ -10,9 +10,20 @@ class ProteinController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // all proteins, paginated (50 per page)
+        $proteins = Protein::paginate(50);
+
+        // if the request contains a search term, fuzzy search on Gene Name or Protein Accession
+        if ($request->has('search')) {
+            $proteins = Protein::where('gene', 'like', '%' . $request->search . '%')
+                ->orWhere('protein_accession', 'like', '%' . $request->search . '%')
+                ->paginate(50);
+        }
+        
+
+        return view('proteins.index', compact('proteins'));
     }
 
     /**

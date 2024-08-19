@@ -19,6 +19,7 @@ class ProteinController extends Controller
         if ($request->has('search')) {
             $proteins = Protein::where('gene', 'like', '%' . $request->search . '%')
                 ->orWhere('protein_accession', 'like', '%' . $request->search . '%')
+                ->orderBy('protein_accession')
                 ->paginate(50);
         }
         

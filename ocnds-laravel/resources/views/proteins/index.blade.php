@@ -23,7 +23,7 @@
         </div>
         <div class="row data" id="search_results">
             @foreach ($proteins as $protein)
-                <div class="col-md-4">
+                <div class="col-md-4 py-3">
                     <div class="card">
                         <div class="card-header">
                             <h5 class="card-title">Accession: {{ $protein->protein_accession }}</h5>

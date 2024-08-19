@@ -237,7 +237,6 @@ fixed in the left and the right of the screen respectively */
     background-color: white;
     border: 1px solid var(--accent2);
     border-radius: 5px;
-    padding: 10px;
 }
 
 .data .card img {
@@ -246,9 +245,10 @@ fixed in the left and the right of the screen respectively */
     border-radius: 5px;
 }
 
-.data .card h3 {
+.data .card h5 {
     font-size: 1rem;
-    color: var(--accent2);
+    color: var(--dark-accent);
+    text-transform: uppercase;
     margin: 10px 0;
 }
 

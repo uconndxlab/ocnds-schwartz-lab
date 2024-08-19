@@ -34,8 +34,8 @@
                             hx-target="#search_results"
                             hx-select="#search_results"
                             hx-include="#order, #search, #order_by">
-                            <option value="protein_accession"
-                                {{ request()->query('order_by') == 'protein_accession' ? 'selected' : '' }}>Accession
+                            <option value="id"
+                                {{ request()->query('order_by') == 'id' ? 'selected' : '' }}>Default Order
                             </option>
                             <option value="k198r_s" {{ request()->query('order_by') == 'k198r_s' ? 'selected' : '' }}>K198r
                                 S</option>
@@ -63,10 +63,12 @@
                         hx-select="#search_results"
                         hx-include="#order_by, #search, #order"
                         class="form-select" name="order" id="order">
-                            <option value="asc" {{ request()->query('order') == 'asc' ? 'selected' : '' }}>Lowest First
-                            </option>
+
                             <option value="desc" {{ request()->query('order') == 'desc' ? 'selected' : '' }}>Highest
                                 First</option>
+
+                                <option value="asc" {{ request()->query('order') == 'asc' ? 'selected' : '' }}>Lowest First
+                                </option>
                         </select>
                     </div>
                 </form>
@@ -78,31 +80,58 @@
                 <div class="col-md-4 py-3" data-result-id = "{{ $protein->id }}">
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="card-title">Accession: {{ $protein->protein_accession }}</h5>
+                            <h5 class="card-title">Accession: <span class="badge bg-dark">{{ $protein->protein_accession }}</span></h5>
                         </div>
                         <div class="card-body">
                             <dl>
-                                <dt>Ensembl ID</dt>
+                                <dt class="result__ensembl_id"> Ensembl ID</dt>
                                 <dd>{{ $protein->ensembl_id }}</dd>
-                                <dt>Gene Name</dt>
+                                <dt class="result__gene">Gene Name</dt>
                                 <dd>{{ $protein->gene }}</dd>
-                                <dt>Gene Description</dt>
+                                <dt class="result__gene_description">Gene Description</dt>
                                 <dd>{{ $protein->gene_description }}</dd>
-                                <dt>K198R S</dt>
+
+
+                                <dt class="result__k198r_s {{ request()->query('order_by') == 'k198r_s' ? 'active' : '' }}">
+                                    K198R S
+                                </dt>
                                 <dd>{{ $protein->k198r_s }}</dd>
-                                <dt>K198R M</dt>
+
+                                <dt class="result__k198r_m {{ request()->query('order_by') == 'k198r_m' ? 'active' : '' }}">
+                                    K198R M
+                                </dt>
                                 <dd>{{ $protein->k198r_m }}</dd>
-                                <dt>R47G</dt>
+
+                                <dt class="result__r47g {{ request()->query('order_by') == 'r47g' ? 'active' : '' }}">
+                                    R47G
+                                </dt>
                                 <dd>{{ $protein->r47g }}</dd>
-                                <dt>D156E</dt>
+
+                                <dt class="result__d156e {{ request()->query('order_by') == 'd156e' ? 'active' : '' }}">
+                                    D156E
+                                </dt>
                                 <dd>{{ $protein->d156e }}</dd>
-                                <dt>pval K198R S</dt>
+                                                            
+                                <dt class="result__pval_k198rs {{ request()->query('order_by') == 'pval_k198rs' ? 'active' : '' }}">
+                                    PVal: K198R S
+                                </dt>
                                 <dd>{{ $protein->pval_k198rs }}</dd>
-                                <dt>pval K198R M</dt>
+
+                                <dt class="result__pval_k198rm {{ request()->query('order_by') == 'pval_k198rm' ? 'active' : '' }}">
+                                    PVal: K198R M
+                                </dt>
                                 <dd>{{ $protein->pval_k198rm }}</dd>
-                                <dt>pval R47G</dt>
-                                <dd>{{ $protein->pval_r47g }}</dd>
-                                <dt>pval D156E</dt>
+
+                                <dt class="result__pval_r47g {{ request()->query('order_by') == 'pval_r47g' ? 'active' : '' }}">
+                                    PVal: R47G
+                                </dt>
+                                <dd>
+                                    {{ $protein->pval_r47g }}
+                                </dd>
+
+                                <dt class="result__pval_d156e {{ request()->query('order_by') == 'pval_d156e' ? 'active' : '' }}">
+                                    PVal: D156E
+                                </dt>
                                 <dd>{{ $protein->pval_d156e }}</dd>
                             </dl>
                         </div>

@@ -10,17 +10,13 @@
             </div>
             <!-- search form, on accession, gene description, and ensembl id -->
             <div class="col-md-12">
-                <form 
-                     autocomplete="off" action="{{ route('phosphorylations.index') }}" method="GET">
+                <form autocomplete="off" action="{{ route('phosphorylations.index') }}" method="GET">
 
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="search">Search</label>
                         <input type="text" class="form-control" name="search" id="search"
-                        hx-trigger="keyup changed delay:500ms"
-                        hx-get="{{ route('phosphorylations.index') }}"
-                        hx-target="#search_results"
-                        hx-select="#search_results"
-                        hx-include="#order_by, #order, #search"
+                            hx-trigger="keyup changed delay:500ms" hx-get="{{ route('phosphorylations.index') }}"
+                            hx-target="#search_results" hx-select="#search_results" hx-include="#order_by, #order, #search"
                             placeholder="Search Gene Name or Protein Accession" value="{{ request()->query('search') }}">
                     </div>
 
@@ -28,13 +24,10 @@
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="order_by">Compare Field</label>
                         <select class="form-select" name="order_by" id="order_by"
-                            hx-get="{{ route('phosphorylations.index') }}"
-                            hx-trigger="change"
-                            hx-target="#search_results"
-                            hx-select="#search_results"
-                            hx-include="#order, #search, #order_by">
-                            <option value="protein_accession"
-                                {{ request()->query('order_by') == 'protein_accession' ? 'selected' : '' }}>Accession
+                            hx-get="{{ route('phosphorylations.index') }}" hx-trigger="change" hx-target="#search_results"
+                            hx-select="#search_results" hx-include="#order, #search, #order_by">
+                            <option value="id"
+                                {{ request()->query('order_by') == 'id' ? 'selected' : '' }}>Default Order
                             </option>
                             <option value="k198r_s" {{ request()->query('order_by') == 'k198r_s' ? 'selected' : '' }}>K198r
                                 S</option>
@@ -55,17 +48,15 @@
                         </select>
 
                         <label class="input-group-text" for="order">Sort Direction</label>
-                        <select 
-                        hx-get="{{ route('phosphorylations.index') }}"
-                        hx-trigger="change"
-                        hx-target="#search_results"
-                        hx-select="#search_results"
-                        hx-include="#order_by, #search, #order"
-                        class="form-select" name="order" id="order">
-                            <option value="asc" {{ request()->query('order') == 'asc' ? 'selected' : '' }}>Lowest First
-                            </option>
+                        <select hx-get="{{ route('phosphorylations.index') }}" hx-trigger="change"
+                            hx-target="#search_results" hx-select="#search_results" hx-include="#order_by, #search, #order"
+                            class="form-select" name="order" id="order">
+
                             <option value="desc" {{ request()->query('order') == 'desc' ? 'selected' : '' }}>Highest
                                 First</option>
+
+                            <option value="asc" {{ request()->query('order') == 'asc' ? 'selected' : '' }}>Lowest First
+                            </option>
                         </select>
                     </div>
                 </form>
@@ -79,7 +70,8 @@
                 <div class="col-md-4 py-3" data-result-id = "{{ $phosphorylation->id }}">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <h5 class="card-title">Accession: {{ $phosphorylation->accession }}</h5>
+                            <h5 class="card-title">Accession: <span
+                                    class="badge bg-dark">{{ $phosphorylation->accession }}</span></h5>
                         </div>
                         <div class="card-body">
                             <dl>
@@ -91,21 +83,24 @@
                                 <dd>{{ $phosphorylation->gene }}</dd>
                                 <dt>Gene Description</dt>
                                 <dd>{{ $phosphorylation->gene_description }}</dd>
-                                <dt>K198R S</dt>
+
+                                <dt class="{{ request()->query('order_by') == 'k198r_s' ? 'active' : '' }}">K198R S</dt>
                                 <dd>{{ $phosphorylation->k198r_s }}</dd>
-                                <dt>K198R M</dt>
+                                <dt class="{{ request()->query('order_by') == 'k198r_m' ? 'active' : '' }}">K198R M</dt>
                                 <dd>{{ $phosphorylation->k198r_m }}</dd>
-                                <dt>R47G</dt>
+                                <dt class="{{ request()->query('order_by') == 'r47g' ? 'active' : '' }}">R47G</dt>
                                 <dd>{{ $phosphorylation->r47g }}</dd>
-                                <dt>D156E</dt>
+                                <dt class="{{ request()->query('order_by') == 'd156e' ? 'active' : '' }}">D156E</dt>
                                 <dd>{{ $phosphorylation->d156e }}</dd>
-                                <dt>pval K198R S</dt>
+
+                                <dt class="{{ request()->query('order_by') == 'pval_k198rs' ? 'active' : '' }}">pval K198R S</dt>
                                 <dd>{{ $phosphorylation->pval_k198rs }}</dd>
-                                <dt>pval K198R M</dt>
+                                <dt class="{{ request()->query('order_by') == 'pval_k198rm' ? 'active' : '' }}">pval K198R M</dt>
                                 <dd>{{ $phosphorylation->pval_k198rm }}</dd>
-                                <dt>pval R47G</dt>
+                                <dt class="{{ request()->query('order_by') == 'pval_r47g' ? 'active' : '' }}">pval R47G</dt>
                                 <dd>{{ $phosphorylation->pval_r47g }}</dd>
-                                <dt>pval D156E</dt>
+                                <dt class="{{ request()->query('order_by') == 'pval_d156e' ? 'active' : '' }}">pval D156E</dt>
+
                                 <dd>{{ $phosphorylation->pval_d156e }}</dd>
                                 <dt>Modified Residue</dt>
                                 <dd>{{ $phosphorylation->modified_residue }}</dd>

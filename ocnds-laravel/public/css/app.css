@@ -19,12 +19,14 @@ body {
     --accent2: #F3DA00;
     /** need an accent3 that is more legible on white background */
     --dark-accent: #0E0064;
+    /** light-accent is for text on dark background, like a lighter version of accent */
+    --light-accent: #d8d4ee;
 
 }
 
 h1,
 h2,
-h3 {
+h3, h4, h5, h6 {
     font-family: 'Kode Mono', monospace;
 }
 
@@ -271,24 +273,35 @@ fixed in the left and the right of the screen respectively */
 
 .data .card dt {
     font-size: 0.8rem;
+    
     color: var(--dark-accent);
-    color: var(--accent2);
-    background-color: #0E0064;
+    background-color: var(--light-accent);
     padding: 5px;;
     border:1px solid transparent;
     cursor: pointer;
+    border-bottom: 1px dashed transparent;
+    display: flex;
+    align-items: center;
 }
 
 .data .card dd {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: var(--dark-accent);
     padding: 5px;
     word-break: break-all;
+    border:1px solid transparent;
+    display: flex;
+    align-items: center;
 
 }
 
 /** hover accent on dt and adjacent dd */
 .data .card dt:hover {
+    border-bottom: 1px dashed var(--accent);
+}
+
+.data .card dt:hover + dd {
+    background-color:#eee;
     border-bottom: 1px dashed var(--accent);
 }
 
@@ -429,6 +442,7 @@ https://codepen.io/AllThingsSmitty/pen/MyqmdM */
 
 .data .card {
     opacity: 0;
+    transition: 0.3s ease-in-out;
 }
 
 /* Define the keyframes for the fly-in animations */
@@ -454,13 +468,29 @@ https://codepen.io/AllThingsSmitty/pen/MyqmdM */
     }
 }
 
+@keyframes fadeInBouncy {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(10%);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+
 /* Apply the animations to the cards */
 .data .col-md-4:nth-child(odd) .card {
-    animation: flyInLeft 0.8s ease-out forwards;
+    animation: fadeInBouncy 0.8s ease-out forwards;
 }
 
 .data .col-md-4:nth-child(even) .card {
-    animation: flyInRight 0.8s ease-out forwards;
+    animation: fadeInBouncy 0.8s ease-out forwards;
 }
 
 /* Add a little delay between each card to make the effect more staggered */
@@ -472,5 +502,14 @@ https://codepen.io/AllThingsSmitty/pen/MyqmdM */
     animation-delay: 0.4s;
 }
 
+dt.active {
+    background-color:var(--dark-accent)!important;
+    color:#F3DA00!important;
+    border-bottom: 1px dashed var(--accent2)!important;
+}
 
-
+dt.active + dd {
+    background-color:var(--dark-accent)!important;
+    color:#F3DA00!important;
+    border-bottom:1px solid var(--accent2)!important;
+}

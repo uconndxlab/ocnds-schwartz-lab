@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/scanx-okur-chung/build/static/css/main.5f56591a.chunk.css",
+    "main.js": "/scanx-okur-chung/build/static/js/main.fc085847.chunk.js",
+    "main.js.map": "/scanx-okur-chung/build/static/js/main.fc085847.chunk.js.map",
+    "runtime-main.js": "/scanx-okur-chung/build/static/js/runtime-main.9a45b30d.js",
+    "runtime-main.js.map": "/scanx-okur-chung/build/static/js/runtime-main.9a45b30d.js.map",
+    "static/js/2.6194aa20.chunk.js": "/scanx-okur-chung/build/static/js/2.6194aa20.chunk.js",
+    "static/js/2.6194aa20.chunk.js.map": "/scanx-okur-chung/build/static/js/2.6194aa20.chunk.js.map",
+    "static/js/3.31e12737.chunk.js": "/scanx-okur-chung/build/static/js/3.31e12737.chunk.js",
+    "static/js/3.31e12737.chunk.js.map": "/scanx-okur-chung/build/static/js/3.31e12737.chunk.js.map",
+    "index.html": "/scanx-okur-chung/build/index.html",
+    "static/css/main.5f56591a.chunk.css.map": "/scanx-okur-chung/build/static/css/main.5f56591a.chunk.css.map",
+    "static/js/2.6194aa20.chunk.js.LICENSE.txt": "/scanx-okur-chung/build/static/js/2.6194aa20.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/scanx-okur-chung/build/static/media/blair.868a6000.ttf",
+    "static/media/clickchevron.834078bf.svg": "/scanx-okur-chung/build/static/media/clickchevron.834078bf.svg",
+    "static/media/uconnlogo.8808ed5e.svg": "/scanx-okur-chung/build/static/media/uconnlogo.8808ed5e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9a45b30d.js",
+    "static/js/2.6194aa20.chunk.js",
+    "static/css/main.5f56591a.chunk.css",
+    "static/js/main.fc085847.chunk.js"
+  ]
+}

@@ -21,13 +21,13 @@
                     </div>
 
                     <!-- order by accession, gene description, and ensembl id -->
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 d-none">
                         <label class="input-group-text" for="order_by">Compare Field</label>
                         <select class="form-select" name="order_by" id="order_by"
                             hx-get="{{ route('phosphorylations.index') }}" hx-trigger="change" hx-target="#search_results"
                             hx-select="#search_results" hx-include="#order, #search, #order_by">
-                            <option value="id"
-                                {{ request()->query('order_by') == 'id' ? 'selected' : '' }}>Default Order
+                            <option value="id" {{ request()->query('order_by') == 'id' ? 'selected' : '' }}>Default
+                                Order
                             </option>
                             <option value="k198r_s" {{ request()->query('order_by') == 'k198r_s' ? 'selected' : '' }}>K198r
                                 S</option>
@@ -66,6 +66,133 @@
         </div>
 
         <div class="row data" id="search_results">
+            <!-- table scroller button -->
+            <div class="col-md-12 table-scroller space-around mb-3">
+                <!-- btn group for left and right scroll -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <!-- icon buttons for scrolling -->
+                    <button type="button" class="btn btn-secondary" id="scrollLeft">
+                        <i class="bi bi-arrow-left"></i>
+
+                        Scroll Left
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" id="scrollRight">
+                        Scroll Right
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Accession</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Gene Name</th>
+                            <th scope="col">Gene Description</th>
+                            <th scope="col">
+                                <a href="{{ route('phosphorylations.index', ['order_by' => 'k198r_s', 'order' => request()->query('order') == 'asc' ? 'desc' : 'asc']) }}">
+                                    K198R S
+                                    @if(request()->query('order_by') == 'k198r_s')
+                                        <i class="bi bi-caret-{{ request()->query('order') == 'asc' ? 'down' : 'up' }}-fill"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th scope="col">
+                                <a href="{{ route('phosphorylations.index', ['order_by' => 'k198r_m', 'order' => request()->query('order') == 'asc' ? 'desc' : 'asc']) }}">
+                                    K198R M
+                                    @if(request()->query('order_by') == 'k198r_m')
+                                        <i class="bi bi-caret-{{ request()->query('order') == 'asc' ? 'down' : 'up' }}-fill"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th scope="col">
+                                <a href="{{ route('phosphorylations.index', ['order_by' => 'r47g', 'order' => request()->query('order') == 'asc' ? 'desc' : 'asc']) }}">
+                                    R47G
+                                    @if(request()->query('order_by') == 'r47g')
+                                        <i class="bi bi-caret-{{ request()->query('order') == 'asc' ? 'down' : 'up' }}-fill"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th scope="col">
+                                <a href="{{ route('phosphorylations.index', ['order_by' => 'd156e', 'order' => request()->query('order') == 'asc' ? 'desc' : 'asc']) }}">
+                                    D156E
+                                    @if(request()->query('order_by') == 'd156e')
+                                        <i class="bi bi-caret-{{ request()->query('order') == 'asc' ? 'down' : 'up' }}-fill"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th scope="col">
+                                <a href="{{ route('phosphorylations.index', ['order_by' => 'pval_k198rs', 'order' => request()->query('order') == 'asc' ? 'desc' : 'asc']) }}">
+                                    Pval K198R S
+                                    @if(request()->query('order_by') == 'pval_k198rs')
+                                        <i class="bi bi-caret-{{ request()->query('order') == 'asc' ? 'down' : 'up' }}-fill"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th scope="col">
+                                <a href="{{ route('phosphorylations.index', ['order_by' => 'pval_k198rm', 'order' => request()->query('order') == 'asc' ? 'desc' : 'asc']) }}">
+                                    Pval K198R M
+                                    @if(request()->query('order_by') == 'pval_k198rm')
+                                        <i class="bi bi-caret-{{ request()->query('order') == 'asc' ? 'down' : 'up' }}-fill"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th scope="col">
+                                <a href="{{ route('phosphorylations.index', ['order_by' => 'pval_r47g', 'order' => request()->query('order') == 'asc' ? 'desc' : 'asc']) }}">
+                                    Pval R47G
+                                    @if(request()->query('order_by') == 'pval_r47g')
+                                        <i class="bi bi-caret-{{ request()->query('order') == 'asc' ? 'down' : 'up' }}-fill"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th scope="col">
+                                <a href="{{ route('phosphorylations.index', ['order_by' => 'pval_d156e', 'order' => request()->query('order') == 'asc' ? 'desc' : 'asc']) }}">
+                                    Pval D156E
+                                    @if(request()->query('order_by') == 'pval_d156e')
+                                        <i class="bi bi-caret-{{ request()->query('order') == 'asc' ? 'down' : 'up' }}-fill"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th scope="col">Modified Residue</th>
+                            <th scope="col">Modified Position</th>
+                            <th scope="col">15mer</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        @foreach ($phosphorylations as $phosphorylation)
+                            <tr>
+                                <td>{{ $phosphorylation->accession }}</td>
+                                <td>{{ $phosphorylation->position }}</td>
+                                <td>{{ $phosphorylation->gene }}</td>
+                                <td>{{ $phosphorylation->gene_description }}</td>
+                                <td>{{ $phosphorylation->k198r_s }}</td>
+                                <td>{{ $phosphorylation->k198r_m }}</td>
+                                <td>{{ $phosphorylation->r47g }}</td>
+                                <td>{{ $phosphorylation->d156e }}</td>
+                                <td>{{ $phosphorylation->pval_k198rs }}</td>
+                                <td>{{ $phosphorylation->pval_k198rm }}</td>
+                                <td>{{ $phosphorylation->pval_r47g }}</td>
+                                <td>{{ $phosphorylation->pval_d156e }}</td>
+                                <td>{{ $phosphorylation->modified_residue }}</td>
+                                <td>{{ $phosphorylation->modified_position }}</td>
+                                <td>{{ $phosphorylation->fifteen_mer }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <!-- pagination -->
+                {{ $phosphorylations->links('pagination::bootstrap-5') }}
+            </div>
+
+        </div>
+
+        {{-- <div class="row data" id="search_results">
             @foreach ($phosphorylations as $phosphorylation)
                 <div class="col-md-4 py-3" data-result-id = "{{ $phosphorylation->id }}">
                     <div class="card mb-4">
@@ -113,13 +240,44 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </div> --}}
 
         <div class="row">
-            <div class="col-md-12">
-                <!-- pagination -->
-                {{ $phosphorylations->links('pagination::bootstrap-5') }}
-            </div>
+
         </div>
     </div>
+
+    <script>
+        // table scroller
+        const table = document.querySelector('.table-responsive');
+        const scrollRight = document.getElementById('scrollRight');
+        const scrollLeft = document.getElementById('scrollLeft');
+
+        function scrollTable(direction) {
+            const scrollAmount = 100;
+            const scrollLeft = direction === 'left';
+            const scrollRight = direction === 'right';
+
+            if (scrollLeft) {
+            table.scrollLeft -= scrollAmount;
+            }
+
+            if (scrollRight) {
+            table.scrollLeft += scrollAmount;
+            }
+        }
+
+        function attachScroll(){
+            scrollRight.addEventListener('click', () => {
+                scrollTable('right');
+            });
+
+            scrollLeft.addEventListener('click', () => {
+                scrollTable('left');
+            });
+        }
+
+        attachScroll();
+        
+    </script>
 @endsection

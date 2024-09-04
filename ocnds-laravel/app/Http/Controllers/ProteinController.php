@@ -30,7 +30,7 @@ class ProteinController extends Controller
         $proteins->orderBy($orderBy, $order);
 
         // Paginate the results
-        $proteins = $proteins->paginate(50);
+        $proteins = $proteins->paginate(50)->appends($request->query());
 
         
         

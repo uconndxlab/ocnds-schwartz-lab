@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <h1>Proteins</h1>
             </div>
-            <!-- search form, on accession, gene description, and ensembl id -->
+            
             <!-- search form, on accession, gene description, and ensembl id -->
             <div class="col-md-12">
                 <form 
@@ -26,7 +26,7 @@
                     </div>
 
                     <!-- order by accession, gene description, and ensembl id -->
-                    <div class="input-group mb-3">
+                    <div class="d-none input-group mb-3">
                         <label class="input-group-text" for="order_by">Compare Field</label>
                         <select class="form-select" name="order_by" id="order_by"
                             hx-get="{{ route('proteins.index') }}"
@@ -76,7 +76,11 @@
             </div>
         </div>
         <div class="row data" id="search_results">
-            @foreach ($proteins as $protein)
+            <div class="col-md-12">
+                <!-- pagination -->
+                {{ $proteins->links('pagination::bootstrap-5') }}
+            </div>
+            {{-- @foreach ($proteins as $protein)
                 <div class="col-md-4 py-3" data-result-id = "{{ $protein->id }}">
                     <div class="card">
                         <div class="card-header">
@@ -137,15 +141,238 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-        <div class="row">
+            @endforeach--}}
+
+            <!-- table scroller button -->
+            <div class="col-md-12 table-scroller space-around mb-3">
+                <!-- btn group for left and right scroll -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <!-- icon buttons for scrolling -->
+                    <button type="button" class="btn btn-secondary" id="scrollLeft">
+                        <i class="bi bi-arrow-left"></i>
+
+                        Scroll Left
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" id="scrollRight">
+                         Scroll Right
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'protein_accession', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    Accession
+                                    @if(request()->query('order_by') == 'protein_accession')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'ensembl_id', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    Ensembl ID
+                                    @if(request()->query('order_by') == 'ensembl_id')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'gene', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    Gene Name
+                                    @if(request()->query('order_by') == 'gene')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'gene_description', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    Gene Description
+                                    @if(request()->query('order_by') == 'gene_description')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'k198r_s', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    K198R S
+                                    @if(request()->query('order_by') == 'k198r_s')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'k198r_m', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    K198R M
+                                    @if(request()->query('order_by') == 'k198r_m')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'r47g', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    R47G
+                                    @if(request()->query('order_by') == 'r47g')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'd156e', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    D156E
+                                    @if(request()->query('order_by') == 'd156e')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'pval_k198rs', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    Pval K198R S
+                                    @if(request()->query('order_by') == 'pval_k198rs')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'pval_k198rm', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    Pval K198R M
+                                    @if(request()->query('order_by') == 'pval_k198rm')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'pval_r47g', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    Pval R47G
+                                    @if(request()->query('order_by') == 'pval_r47g')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('proteins.index', ['order_by' => 'pval_d156e', 'order' => request()->query('order') == 'desc' ? 'asc' : 'desc']) }}">
+                                    Pval D156E
+                                    @if(request()->query('order_by') == 'pval_d156e')
+                                        @if(request()->query('order') == 'desc')
+                                            <i class="bi bi-caret-down-fill"></i>
+                                        @else
+                                            <i class="bi bi-caret-up-fill"></i>
+                                        @endif
+                                    @endif
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($proteins as $protein)
+                            <tr>
+                                <td>{{ $protein->protein_accession }}</td>
+                                <td>{{ $protein->ensembl_id }}</td>
+                                <td>{{ $protein->gene }}</td>
+                                <td>{{ $protein->gene_description }}</td>
+                                <td>{{ $protein->k198r_s }}</td>
+                                <td>{{ $protein->k198r_m }}</td>
+                                <td>{{ $protein->r47g }}</td>
+                                <td>{{ $protein->d156e }}</td>
+                                <td>{{ $protein->pval_k198rs }}</td>
+                                <td>{{ $protein->pval_k198rm }}</td>
+                                <td>{{ $protein->pval_r47g }}</td>
+                                <td>{{ $protein->pval_d156e }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
             <div class="col-md-12">
                 <!-- pagination -->
                 {{ $proteins->links('pagination::bootstrap-5') }}
-            </div>
-        </div>
+            </div>   <!-- as a table -->
+        </div> 
+
+
+
     </div>
 
 
+    <script>
+        // table scroller
+        const table = document.querySelector('.table-responsive');
+        const scrollRight = document.getElementById('scrollRight');
+        const scrollLeft = document.getElementById('scrollLeft');
+
+        function scrollTable(direction) {
+            const scrollAmount = 100;
+            const scrollLeft = direction === 'left';
+            const scrollRight = direction === 'right';
+
+            if (scrollLeft) {
+            table.scrollLeft -= scrollAmount;
+            }
+
+            if (scrollRight) {
+            table.scrollLeft += scrollAmount;
+            }
+        }
+
+        function attachScroll(){
+            scrollRight.addEventListener('click', () => {
+                scrollTable('right');
+            });
+
+            scrollLeft.addEventListener('click', () => {
+                scrollTable('left');
+            });
+        }
+
+        attachScroll();
+        
+    </script>
 @endsection

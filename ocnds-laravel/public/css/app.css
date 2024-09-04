@@ -131,6 +131,31 @@ button[type="submit"] {
     overflow-x: auto;
 }
 
+.data th {
+    background-color: var(--accent2);
+    color: var(--accent);
+    padding: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.data th a {
+    color: var(--accent);
+    text-decoration: none;
+    display: block;
+}
+
+.data th:hover, .data th:hover a {
+    background-color: var(--accent);
+    color: white!important;
+}
+
+.data td {
+    min-width: 300px;
+    border-right: 1px dashed var(--accent2);
+}
+
 /* #scrollLeft and #scrollRight are buttons that allow the user to scroll the table left and right and they should be 
 fixed in the left and the right of the screen respectively */
 
@@ -158,8 +183,8 @@ fixed in the left and the right of the screen respectively */
 
 #scrollLeft,
 #scrollRight {
-    background-color: var(--accent2);
-    color: var(--accent);
+    background-color: var(--light-accent);
+    color: var(--dark-accent);
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -175,6 +200,8 @@ fixed in the left and the right of the screen respectively */
 
 
 
+
+
 .data h3 {
     color: var(--accent2);
     font-size: 1.2rem;
@@ -182,43 +209,98 @@ fixed in the left and the right of the screen respectively */
 }
 
 
+/** Bootstrap Striped Table to match the theme */
 
 .data table {
     border-collapse: collapse;
     width: 100%;
-
-    margin-top: 20px;
 }
 
 .data th {
     background-color: var(--accent2);
-    color: var(--dark-accent);
-    font-size: 0.8rem;
+    color: var(--accent);
     padding: 10px;
     text-align: left;
-    text-transform: uppercase;
+}
+
+.data th a {
+    color: var(--accent);
+    text-decoration: underline;
+    display: block;
+}
+
+.data th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.data th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .data td {
-    border-bottom: 1px solid var(--accent2);
-    color:#d9d8dd;
     padding: 10px;
-}
+    border-bottom: 1px solid var(--accent2);
+    
+}   
 
 .data tr:nth-child(even) {
-    background-color: #f2f2f2;
-
+    background-color: var(--light-accent);
 }
 
-.data tr:nth-child(even) td {
-    color:#0E0064;
-}
-
-
-.data tr:hover, .data tr:hover td {
+.data tr:hover {
     background-color: var(--accent2);
-    color:#0E0064;
+    color: var(--accent);
 }
+
+.data tr:hover a {
+    color: var(--accent);
+}
+
+.data tr:hover a:hover {
+    color: var(--accent2);
+}
+
+.data a {
+  
+    text-decoration: none;
+}
+
+.data a:hover {
+    color: var(--accent2);
+}
+
+.data .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.data .pagination a {
+    padding: 10px;
+    border: 1px solid var(--accent2);
+    border-radius: 5px;
+    margin: 0 5px;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.data .pagination a:hover {
+    background-color: var(--accent2);
+    color: var(--accent);
+}
+
+.data .pagination .active {
+    background-color: var(--accent2);
+    color: var(--accent);
+}
+
+.data .pagination .disabled {
+    display: none!important;
+}
+
+
 
 /** sometimes, data will contain a grid of div.card instead of a table, inside a wrapper div.card-container */
 

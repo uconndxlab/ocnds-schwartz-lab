@@ -193,10 +193,6 @@
                 <!-- pagination -->
                 {{ $phosphorylations->links('pagination::bootstrap-5') }}
             </div>
-            <div class="col-md-12">
-                <!-- pagination -->
-                {{ $phosphorylations->links('pagination::bootstrap-5') }}
-            </div>
         </div>
 
         {{-- <div class="row data" id="search_results">

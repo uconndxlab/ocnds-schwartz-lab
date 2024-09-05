@@ -177,10 +177,10 @@
                                 <td>{{ $phosphorylation->k198r_m }}</td>
                                 <td>{{ $phosphorylation->r47g }}</td>
                                 <td>{{ $phosphorylation->d156e }}</td>
-                                <td>{{ $phosphorylation->pval_k198rs }}</td>
-                                <td>{{ $phosphorylation->pval_k198rm }}</td>
-                                <td>{{ $phosphorylation->pval_r47g }}</td>
-                                <td>{{ $phosphorylation->pval_d156e }}</td>
+                                <td>{{ sprintf("%.2E",$phosphorylation->pval_k198rs) }}</td>
+                                <td>{{ sprintf("%.2E", $phosphorylation->pval_k198rm) }}</td>
+                                <td>{{ sprintf("%.2E", $phosphorylation->pval_r47g) }}</td>
+                                <td>{{ sprintf("%.2E", $phosphorylation->pval_d156e) }}</td>
                                 <td>{{ $phosphorylation->modified_residue }}</td>
                                 <td>{{ $phosphorylation->modified_position }}</td>
                                 <td>{{ $phosphorylation['15mer'] }}</td>

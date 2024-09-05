@@ -23,11 +23,13 @@ class ProteinController extends Controller
         }
 
         // Determine the column to order by and the order (order_by and order)
-        $orderBy = $request->input('order_by', 'protein_accession'); // Default to 'protein_accession'
+        $orderBy = $request->input('order_by', 'gene'); // Default to 'protein_accession'
         $order = $request->input('order', 'asc'); // Default to ascending order
 
+
         // Apply ordering
-        $proteins->orderBy($orderBy, $order);
+        $proteins->orderByRaw("{$orderBy} IS NULL, {$orderBy} = '', {$orderBy} {$order}");
+
 
         // Paginate the results
         $proteins = $proteins->paginate(50)->appends($request->query());

@@ -22,11 +22,11 @@ class PhosphorylationController extends Controller
         }
     
         // Determine the column to order by
-        $orderBy = $request->input('order_by', 'accession'); // Default to 'accession'
+        $orderBy = $request->input('order_by', 'gene'); // Default to 'accession'
         $order = $request->input('order', 'asc'); // Default to ascending order
     
         // Apply ordering
-        $phosphorylations->orderBy($orderBy, $order);
+        $phosphorylations->orderByRaw("{$orderBy} IS NULL, {$orderBy} = '', {$orderBy} {$order}");
     
         // Paginate the results
         $phosphorylations = $phosphorylations->paginate(50);

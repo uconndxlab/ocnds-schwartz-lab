@@ -67,7 +67,7 @@
                         </p>
 
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a href="{{ route('proteins.index') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Search Proteins</a>
+                            <a href="{{ route('proteins.index') }}" class="nav-link {{ request()->is('proteins') ? 'active' : '' }}">Search Proteins</a>
                             <a href="{{ route('phosphorylations.index') }}" class="nav-link {{ request()->is('phos') ? 'active' : '' }}">Search Phosphorylation</a>
                         </div>
                     </div>

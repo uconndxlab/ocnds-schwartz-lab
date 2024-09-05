@@ -13,7 +13,7 @@ class ProteinsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $file = database_path('source-data/prot.csv');
+        $file = database_path('source-data/proteins_final.csv');
 
         // Open the file for reading
         if (($handle = fopen($file, 'r')) !== false) {

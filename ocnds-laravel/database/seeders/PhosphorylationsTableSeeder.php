@@ -13,7 +13,7 @@ class PhosphorylationsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $file = database_path('source-data/phos.csv');
+        $file = database_path('source-data/phosphorylation_final.csv');
 
         // Open the file for reading
         if (($handle = fopen($file, 'r')) !== false) {
@@ -28,7 +28,7 @@ class PhosphorylationsTableSeeder extends Seeder
                 // Create the Phosphorylation record
                 Phosphorylation::create([
                     'accession' => $record['Accession'],
-                    'position' => $record['Position'],
+                    'position' => $record['Phosphorylated Residue(s)'],
                     'gene' => $record['Gene'],
                     'gene_description' => $record['Gene_Description'],
                     'k198r_s' => $record['K198R_S'],

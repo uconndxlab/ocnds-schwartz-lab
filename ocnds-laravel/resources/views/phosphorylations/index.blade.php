@@ -179,7 +179,7 @@
                                 <td>{{ $phosphorylation->pval_d156e }}</td>
                                 <td>{{ $phosphorylation->modified_residue }}</td>
                                 <td>{{ $phosphorylation->modified_position }}</td>
-                                <td>{{ $phosphorylation->fifteen_mer }}</td>
+                                <td>{{ $phosphorylation['15mer'] }}</td>
                             </tr>
                         @endforeach
                     </tbody>

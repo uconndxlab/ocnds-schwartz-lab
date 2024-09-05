@@ -37,9 +37,7 @@
             <header>
                 <div class="title">
                     <h1 class="main-title">OCNDS</h1>
-                    <h2 class="title2">Okur-Chung<br>
-                        Neurodevelopmental<br>
-                        Syndrome</h2>
+                    <h2 class="title2 ms-2">Quantitative <br>Proteomics <br> Database</h2>
                 </div>
                 <div class="subtitle">
                     <p>Schwartz Lab - University of Connecticut</p>
@@ -54,8 +52,7 @@
                     <div class="container">
                         <h3>Credits</h3>
                         <p>
-                            Schwartz Lab | Researchers: John Doe, Mary Sue | Lorem ipsum dolor sit amet consectetur.
-                            Lacinia turpis et quam non in.
+                            The following researchers contributed to this project: Danielle Caefer, Audrey Baker, Jen Liddle, Jeremy Balsbaugh, Zoe England, Anastasios Tzingounis, and Daniel Schwartz
                         </p>
                     </div>
                 </section>
@@ -66,10 +63,7 @@
                     <div class="container">
                         <h3>Database Description</h3>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur. Lacinia turpis et quam non in. In lorem massa et
-                            blandit gravida mattis. Quis viverra lacus duis metus amet purus est sit. Ut aliquam erat
-                            faucibus faucibus morbi neque ipsum ut proin. Habitasse quam in congue risus quam. In lorem
-                            massa et blandit gravida mattis.
+                            The OCNDS database contains results from our TMT-labeled, highly quantitative mass spectrometry experiment involving five human cell lines, four of which contain mutations to CK2, and one genetic control. The values shown in each variant column are fold changes relative to the wild type. The database can be searched looking at the proteome or phosphoproteome, using gene name or protein accession, and can be sorted by column. Future work will incorporate filtering and tool tips. This database as well as the experiments documented in it are part of a paper in progress.
                         </p>
 
                         <div class="btn-group" role="group" aria-label="Basic example">

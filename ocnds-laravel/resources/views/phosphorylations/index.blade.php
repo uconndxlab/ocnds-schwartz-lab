@@ -68,7 +68,7 @@
         <div class="row data" id="search_results">
             <div class="col-md-12">
                 <!-- pagination -->
-                {{ $proteins->links('pagination::bootstrap-5') }}
+                {{ $phosphorylations->links('pagination::bootstrap-5') }}
             </div>
             <!-- table scroller button -->
             <div class="col-md-12 table-scroller space-around mb-3">
@@ -193,7 +193,10 @@
                 <!-- pagination -->
                 {{ $phosphorylations->links('pagination::bootstrap-5') }}
             </div>
-
+            <div class="col-md-12">
+                <!-- pagination -->
+                {{ $phosphorylations->links('pagination::bootstrap-5') }}
+            </div>
         </div>
 
         {{-- <div class="row data" id="search_results">
@@ -246,9 +249,7 @@
             @endforeach
         </div> --}}
 
-        <div class="row">
 
-        </div>
     </div>
 
     <script>

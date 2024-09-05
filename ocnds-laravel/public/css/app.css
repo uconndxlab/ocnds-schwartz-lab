@@ -134,10 +134,11 @@ button[type="submit"] {
 .data th {
     background-color: var(--accent2);
     color: var(--accent);
-    padding: 10px;
-    font-weight: 400;
+
+    font-weight: 600;
     text-transform: uppercase;
     text-align: left;
+    font-size:14px;
 }
 
 .data th a {
@@ -152,8 +153,13 @@ button[type="submit"] {
 }
 
 .data td {
-    min-width: 300px;
+    min-width: 8em;
     border-right: 1px dashed var(--accent2);
+}
+
+.data tr:hover td {
+    background-color: var(--accent);
+    color: white;
 }
 
 /* #scrollLeft and #scrollRight are buttons that allow the user to scroll the table left and right and they should be 

@@ -66,6 +66,10 @@
         </div>
 
         <div class="row data" id="search_results">
+            <div class="col-md-12">
+                <!-- pagination -->
+                {{ $proteins->links('pagination::bootstrap-5') }}
+            </div>
             <!-- table scroller button -->
             <div class="col-md-12 table-scroller space-around mb-3">
                 <!-- btn group for left and right scroll -->

@@ -52,7 +52,7 @@
                     <div class="container">
                         <h3>Credits</h3>
                         <p>
-                            The following researchers contributed to this project: Danielle Caefer, Audrey Baker, Jen Liddle, Jeremy Balsbaugh, Zoe England, Anastasios Tzingounis, and Daniel Schwartz
+                            The following researchers contributed to this project: Danielle Caefer, Audrey Baker, Jen Liddle, Jeremy Balsbaugh, Zoey England, Anastasios Tzingounis, and Daniel Schwartz
                         </p>
                     </div>
                 </section>

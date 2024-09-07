@@ -460,7 +460,7 @@ aside > section {
 
 .btn:hover {
     background-color: var(--accent2);
-    color: var(--accent);
+    color: #000;
 }
 
 .btn-secondary {
@@ -600,4 +600,59 @@ dt.active + dd {
     background-color:var(--dark-accent)!important;
     color:#F3DA00!important;
     border-bottom:1px solid var(--accent2)!important;
+}
+
+.card--database {
+    background-color:#090c38;
+    border:1px solid var(--accent);
+    border-radius: 0px;
+    color:#fff;
+}
+
+.card--database .card-body, .card--channel-predictor .card-body {
+    padding: 20px !important;
+}
+
+.card--channel-predictor .btn, .card--database .btn {
+    display: block;
+    width: 100%;
+    border-radius: 0px;
+}
+
+.card--channel-predictor p, .card--database p {
+    font-size:16px;
+}
+
+.card--channel-predictor h5, .card--database h5 {
+    font-size: 1.6rem;
+    margin: 10px 0;
+}
+
+.card--channel-predictor {
+    background-color: rgba(0,0,0,0.8);
+    border:1px solid var(--accent2);
+    border-radius: 0px;
+    color:#fff;
+    padding: 0px !important;
+}
+
+.card--channel-predictor a {
+    color:#000;
+    background-color:var(--accent2);
+    text-align: center;;
+    border:1px solid var(--accent2);
+}
+
+.card--channel-predictor a:hover {
+    color:var(--accent2);
+    background-color:var(--accent);
+}
+
+/** uconnlogo is an svg, need it to be white */
+.uconnlogo {
+    fill: white;
+    /** also a filter to make it white **/
+    filter: invert(1);
+    max-width: 200px;
+
 }

@@ -30,8 +30,8 @@
 
 </head>
 
-<body>
-    <div class="bg-dark py-5" id="app">
+<body class="dashboard">
+    <div class="py-5" id="app">
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-12 mb-5">
@@ -46,7 +46,9 @@
                             <h5 class="card-title">OCNDS CK2 K198R Ion Channel Predictor</h5>
                             <p class="card-text">
                                 The OCNDS ion channel predictor is a tool to identify possible CK2 wild type and K198R
-                                variant phosphorylation sites of human ion channels localized to the axon. Proteins can
+                                variant phosphorylation sites of human ion channels localized to the axon.</p>
+                                
+                                <p class="card-text py-1"> Proteins can
                                 be filtered by name and results show the 15mer sequence surrounding the phosphorylation
                                 site, as well as a calculated probability that the site is phosphorylated by WT CK2 or
                                 K198R CK2. For a more detailed methodology, please review the accompanying paper.</p>
@@ -67,7 +69,9 @@
                             <p class="card-text">The OCNDS database contains results from our TMT-labeled, highly
                                 quantitative mass spectrometry experiment involving five human cell lines, four of which
                                 contain mutations to CK2, and one genetic control. The values shown in each variant
-                                column are fold changes relative to the wild type. The database can be searched looking
+                                column are fold changes relative to the wild type. 
+                                
+                                <p class="card-text py-1"> The database can be searched looking
                                 at the proteome or phosphoproteome, using gene name or protein accession, and can be
                                 sorted by column. Future work will incorporate filtering and tool tips. This database as
                                 well as the experiments documented in it are part of a paper in progress.
@@ -80,7 +84,7 @@
                 </div>
 
                 <div class="col-lg-12 text-center my-4">
-                    <img class="uconnlogo mt-5" src={{ asset('uconnlogo.svg') }} alt="OCNDS Logo" class="img-fluid">
+                    <img class="uconnlogo mt-5" src={{ asset('uconn-wordmark-single-white.png') }} alt="UConn Logo" class="img-fluid">
                 </div>
             </div>
         </div>

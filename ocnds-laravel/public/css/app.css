@@ -628,6 +628,10 @@ dt.active + dd {
     margin: 10px 0;
 }
 
+.card--database h5 {
+    color: var(--accent2);
+}
+
 .card--channel-predictor {
     background-color: rgba(0,0,0,0.8);
     border:1px solid var(--accent2);
@@ -650,9 +654,24 @@ dt.active + dd {
 
 /** uconnlogo is an svg, need it to be white */
 .uconnlogo {
-    fill: white;
-    /** also a filter to make it white **/
-    filter: invert(1);
+
     max-width: 200px;
 
+}
+
+
+body.dashboard {
+    background-image: url(../bg-gradient.png);
+}
+
+body.dashboard::after {
+    content: "";
+    background: rgba(0,0,0,0.8);
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
